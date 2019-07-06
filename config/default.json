@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://admin:JWHjC!z7pHLEhJd@devconnector-nnujd.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "youCan'tHackMe"
+    "jwtSecret": "youCan'tHackMe",
+    "githubClientId": "935e11ceb915db4b0136",
+    "githubClientSecret": "d1853b5bf71a3390c61cca270e3b172728330c2f"
 }
