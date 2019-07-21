@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
@@ -10,7 +10,8 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date }
+  post: { _id, text, name, avatar, user, likes, comments, date },
+  showActions
 }) => (
   <div className='post bg-white p-1 my-1'>
     <div>
@@ -25,6 +26,8 @@ const PostItem = ({
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
 
+      {showActions && (
+        <Fragment>
           <button
             onClick={() => addLike(_id)}
             type='button'
@@ -55,6 +58,8 @@ const PostItem = ({
               <i className='fas fa-times' />
             </button>
           )}
+        </Fragment>
+      )}
     </div>
   </div>
 );
@@ -69,6 +74,7 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
+  showActions: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
