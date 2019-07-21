@@ -1,17 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { addLike, removeLike } from '../../actions/post';
+import { addLike, removeLike, deletePost } from '../../actions/post';
 
 const PostItem = ({
   addLike,
   removeLike,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date },
-  showActions
+  post: { _id, text, name, avatar, user, likes, comments, date }
 }) => (
   <div className='post bg-white p-1 my-1'>
     <div>
@@ -26,8 +25,6 @@ const PostItem = ({
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
 
-      {showActions && (
-        <Fragment>
           <button
             onClick={() => addLike(_id)}
             type='button'
@@ -58,8 +55,6 @@ const PostItem = ({
               <i className='fas fa-times' />
             </button>
           )}
-        </Fragment>
-      )}
     </div>
   </div>
 );
@@ -73,7 +68,7 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
-  showActions: PropTypes.bool
+  deletePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -82,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addLike, removeLike }
+  { addLike, removeLike, deletePost }
 )(PostItem);
