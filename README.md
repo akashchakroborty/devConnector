@@ -1,6 +1,6 @@
 # DevConnector
 
-> Small social network app built with the MERN stack.
+> Small social network app built with the MERN stack. This application is hosted in heroku.
 
 ## Quick Start
 
